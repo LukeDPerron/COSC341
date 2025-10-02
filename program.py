@@ -141,7 +141,7 @@ def file_sort(infile, outfile):
     student_gpas = []    
 
     for line in in_file:
-        student_info = line.split()
+        student_info = line.strip().split()
         student_ids.append(int(student_info[0]))     
         student_names.append((student_info[1]))
         student_gpas.append(float(student_info[2]))
@@ -233,9 +233,30 @@ while True:
         infile = input("infile: ")
         outfile = input("outfile: ")
         file_sort(infile,outfile)
+    elif option == 10:
+        break
 
 class Rectangle:
-    def __init__(length, width):
+    def __init__(self, length, width):
         self.length = length
         self.width = width
+    
+    def getLength(self):
+        return self.length
+    
+    def setLength(self, length):
+        self.length = length
+    
+    def getWidth(self):
+        return self.width
+    
+    def setWidth(self, width):
+        self.width = width
+    
+    def a(self, length, width):
+        return self.length * self.width
+    
+    def __str__(self):
+        return str(self.length) + ' ' + str(self.width)
+
     
