@@ -1,0 +1,147 @@
+<html>
+    <body>
+        <p id="myId"> </p>
+        <script>
+           function factors(a)
+           {
+                let word = "";
+                for (var i = 1; i <= a; i++)
+                {
+                    if(a % i == 0 || a % i == a){
+                        word = word + i + ",";
+                    }
+                }
+                console.log(word)
+                return word
+           }
+           factors(100);
+
+
+           function tax(income, status)
+           {
+            if(income < 0){
+                return -1;
+            }
+            tax_rate = 0.0;
+            if(status == "single" || status == "SINGLE")
+            {
+                if(income < 30000)
+                {
+                    tax_rate = 0.2
+                }
+                else{
+                    tax_rate = 0.25
+                }
+            }
+            else if(status == "married" || status == "MARRIED")
+            {
+                 if(income < 50000)
+                {
+                    tax_rate = 0.1
+                }
+                else{
+                    tax_rate = 0.15
+                }
+            }
+            console.log(income * tax_rate)
+            return income * tax_rate
+           }
+           tax(25000, "single")
+           tax(35000, "SINGLE")
+           tax(45000, "married")
+           tax(55000, "MARRIED")
+
+           function stdDev(numbers){
+            var size = numbers.length
+            var avg = 0
+
+            for (let i = 0; i < numbers.length; i++){
+                avg = avg + numbers[i]
+            }
+
+            avg = avg / size
+            var std = 0
+            for (let i = 0; i < numbers.length; i++){
+                std  = std + Math.pow((numbers[i] - avg), 2)
+            }   
+
+            return Math.sqrt(std/size)
+           }
+           var nums = [6,7];
+           var result = stdDev(nums);
+           console.log("stdDev([6,7]) =", result);
+        
+        function createIdPassword(first, last)
+        {
+            id = (first.charAt(0) + last).toUpperCase();
+            password = (first.charAt(0) + first.charAt(first.length - 1) + last.substring(0, 3) + first.length + "" + last.length).toUpperCase()
+            var idpass = [id, password]
+            return idpass
+        }
+        var first = "John";
+        var last = "Maxwell";
+        console.log(createIdPassword(first, last))
+
+        function removeDuplicates(strings)
+        {
+            var noDuplicates = new Array(strings.length)
+            var count = 0;
+            
+            for(var i = 0; i < strings.length; i++)
+            {
+               let found = false;
+               for(var j = 0; j < i; j++)
+               {
+                  if (strings[i] == strings[j]){
+                    found = true
+                  }
+               }
+               if (found == false)
+               {
+                noDuplicates[count] = strings[i]
+                count++
+               }
+            }
+            return noDuplicates
+        }
+
+        class Student{
+            constructor(name, gpa)
+            {
+                this.name = name;
+                this.gpa = gpa;
+            }
+
+            getName()
+            {
+                return this.name;
+            }
+            setName(name)
+            {
+                this.name = name;
+            }
+
+            getGpa()
+            {
+                return this.gpa;
+            }
+
+            setGpa(gpa)
+            {
+                this.gpa = gpa;
+            }
+
+            isHonors()
+            {
+                if (this.gpa >= 3){
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        var list = ["tree", "cat", "box", "cat", "dog", "tree", "tree", "box"];
+        console.log(removeDuplicates(list));
+        </script>
+    </body>
+</html>

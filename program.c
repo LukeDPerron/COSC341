@@ -118,7 +118,7 @@ void process_scores()
         printf("Enter student name and score, or q to quit: ");
         scanf("%s", input);
         // if they enter q, break out
-        if (tolower(input[0]) == quit)
+        if (tolower(input[0]) == 'q')
         {
             break;
         }
@@ -299,7 +299,7 @@ void file_count(char *file, int *characters, int *blanks, int *lines)
 
     // while true
     while (1)
-    {
+    {   
         // character equals get file pointer
         character = fgetc(fp);
         // if we hit end of file, break out of loop
@@ -342,7 +342,7 @@ void file_sort(char *infile, char *outfile)
 
     // reading amt of students from the file.
     fscanf(fp, "%d", &students);
-    // getting character from the file
+    // getting to next line.
     fgetc(fp);
 
     // dynamically allocating memory by giving amount of bytes needed using students * size
