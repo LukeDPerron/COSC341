@@ -12,7 +12,6 @@ double compute_pi(int n)
     int nume = 1;
     // looping until we get to n value
     for (int i = 0; i < n; i++)
-
         // adding value of 2 times i + 1 for odd numbers to sum constantly until n is reached
         sum += nume / ((2.0 * i) + 1);
     // making numerator opposite of what it is everytime
