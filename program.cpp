@@ -278,29 +278,107 @@ void Score::display()
     cout << "Average: " << average();
 }
 
-int main()
+class Person
 {
-    // cout << "Enter a number to compute pi with:";
-    // int input;
-    // cin >> input;
-    // cout << "Your value of pi using " << input << " is " << compute_pi(input);
+    //private variables
+    private:
+        string name;
+        int age;
+    //public constructors and methods
+    public:
+    //method declaration
+        Person(string name, int age);
 
-    // scores();
+        string getName();
+        void setName(string name);
 
-    // string input_file;
-    // string output_file;
-    // cout << "Enter name of input file: \n";
-    // cin >> input_file;
-    // cout << "Enter name of output file: \n";
-    // cin >> output_file;
-    // file_sort(&input_file[0], &output_file[0]);
+        int getAge();
+        void setAge(int age);
+};
 
-    double arr[] = {85.5, 90.0, 78.5, 92.0};
-    Score s(arr, 4);
+//setting private variable values
+Person::Person(string name, int age)
+{
+    this->name = name;
+    this->age = age;
+}
 
-    s.display();
+//returning name
+string Person::getName()
+{
+    return name;
+}
 
-    return 0;
+//setting name using user data
+void Person::setName(string name)
+{
+    this->name = name;
+}
+
+//returning age
+int Person::getAge()
+{
+    return age;
+}
+
+//setting age using user daat
+void Person::setAge(int age)
+{
+    this->age = age;
+}
+
+//inheriting person class
+class Student : public Person
+{
+    //declaring private variables
+    private:
+        double gpa;
+        int id;
+    //declaring public methods
+    public:
+    //constructor with inherited variables
+        Student(string name, int age, int id, double gpa);
+        
+        void setId(int id);
+        int getId();
+
+        void setGpa(double gpa);
+        double getGpa();
+
+        void show();
+};
+
+//constructor that takes in variables from Student and Person
+Student::Student(string name, int age, int id, double gpa) : Person(name, age)
+{
+    this->id = id;
+    this->gpa = gpa;
+}
+
+//setting id
+void Student::setId(int id)
+{
+    this->id = id;
+}
+//returning id
+int Student::getId()
+{
+    return id;
+}
+//setting gpa
+void Student::setGpa(double gpa)
+{
+    this->gpa = gpa;
+}
+//returning gpa
+double Student::getGpa()
+{
+    return gpa;
+}
+//printing out each value
+void Student::show()
+{
+    cout << "Name: " << getName() << "\nAge: " << getAge() << "\nId: " << getId() << "\nGpa: " << getGpa();
 }
 
 
